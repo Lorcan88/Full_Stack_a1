@@ -43,11 +43,18 @@ export const accountsController = {
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
-      if (!user || user.password !== password) {
+      const admin = await db.adminStore.getAdminByEmail(email);
+      if (user && user.password === password) {
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/dashboard");
+      }
+      else if (admin && admin.password === password) {
+          request.cookieAuth.set({ id: admin._id });
+          return h.redirect("/adminDashboard");
+        }
+       else{
         return h.redirect("/");
       }
-      request.cookieAuth.set({ id: user._id });
-      return h.redirect("/dashboard");
     },
   },
   logout: {
@@ -59,9 +66,14 @@ export const accountsController = {
 
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
-    if (!user) {
+    const admin = await db.adminStore.getAdminById(session.id);
+    if (user) {
+      return { valid: true, credentials: user };
+    }
+    else if (admin){
+      return { valid: true, credentials: admin }
+    } else {
       return { valid: false };
     }
-    return { valid: true, credentials: user };
   },
 };

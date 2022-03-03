@@ -34,6 +34,16 @@
       "duration": 54,
       "_id": "6a33eced-3f76-4e58-a72b-7981ff527dbe",
       "placeMarkid": "da614dae-4c25-4c8e-8d35-28ffcbebbea6"
+    },
+    {
+      "name": "grf",
+      "description": "rgfe",
+      "location": "rgfer",
+      "category": "grfe",
+      "longitude": 4,
+      "latitude": 4,
+      "_id": "145b59e5-fdb8-47b0-abf1-69d066d08894",
+      "placeMarkid": "da614dae-4c25-4c8e-8d35-28ffcbebbea6"
     }
   ]
 }

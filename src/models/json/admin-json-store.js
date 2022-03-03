@@ -2,10 +2,10 @@ import { v4 } from "uuid";
 // eslint-disable-next-line import/no-unresolved
 import { JSONFile, Low } from "lowdb";
 
-const db = new Low(new JSONFile("./src/models/json/users.json"));
-db.data = { users: [] };
+const db = new Low(new JSONFile("./src/models/json/admins.json"));
+db.data = { admin: [] };
 
-export const userJsonStore = {
+export const adminJsonStore = {
   async getAllUsers() {
     await db.read();
     return db.data.users;
@@ -19,22 +19,14 @@ export const userJsonStore = {
     return user;
   },
 
-  async updateUser(user, updatedUser) {
-    user.firstName = updatedUser.firstName;
-    user.lastName = updatedUser.lastName;
-    user.email = updatedUser.email;
-    user.password = updatedUser.password;
-    await db.write();
+  async getAdminById(id) {
+    await db.read();
+    return db.data.admin.find((admin) => admin._id === id);
   },
 
-  async getUserById(id) {
+  async getAdminByEmail(email) {
     await db.read();
-    return db.data.users.find((user) => user._id === id);
-  },
-
-  async getUserByEmail(email) {
-    await db.read();
-    return db.data.users.find((user) => user.email === email);
+    return db.data.admin.find((admin) => admin.email === email);
   },
 
   async deleteUserById(id) {
