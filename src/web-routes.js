@@ -23,7 +23,7 @@ export const webRoutes = [
   { method: "GET", path: "/adminUserViewDashboard/{id}", config: adminDashboardController.userViewIndex },
   { method: "GET", path: "/adminDashboard/deleteuser/{id}", config: adminDashboardController.deleteUser },
 
-  { method: "GET", path: "/settings", config: settingsController.index },
+  { method: "GET", path: "/settings/{id}/updatecurrentuser", config: settingsController.index },
   { method: "POST", path: "/settings/{id}/updatecurrentuser", config: settingsController.updateCurrentUser },
 
   { method: "GET", path: "/placeMark/{id}", config: placeMarkController.index },

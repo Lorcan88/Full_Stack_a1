@@ -4,7 +4,7 @@ export const adminDashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const users = await db.userStore.getAllUsers()
+      const users = await db.userStore.getAllUsers();
       const viewData = {
         title: "Admin Place Mark Dashboard",
         admin: loggedInUser,
@@ -19,7 +19,7 @@ export const adminDashboardController = {
       const placeMarks = await db.placeMarkStore.getUserPlaceMarks(user._id);
       const viewData = {
         title: "Place Mark Dashboard",
-        user:user,
+        user: user,
         placeMarks: placeMarks,
       };
       return h.view("adminUserViewDashboard-view", viewData);

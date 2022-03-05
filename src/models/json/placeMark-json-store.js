@@ -29,12 +29,16 @@ export const placeMarkJsonStore = {
 
   async getUserPlaceMarks(userid) {
     await db.read();
-    return db.data.placeMarks.filter((placeMark) => placeMark.userid === userid);
+    return db.data.placeMarks.filter(
+      (placeMark) => placeMark.userid === userid
+    );
   },
 
   async deletePlaceMarkById(id) {
     await db.read();
-    const index = db.data.placeMarks.findIndex((placeMark) => placeMark._id === id);
+    const index = db.data.placeMarks.findIndex(
+      (placeMark) => placeMark._id === id
+    );
     db.data.placeMarks.splice(index, 1);
     await db.write();
   },
