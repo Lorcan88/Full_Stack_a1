@@ -25,7 +25,7 @@ export const settingsController = {
         password: request.payload.password,
       };
       await db.userStore.updateUser(user, viewData);
-      return h.redirect(`/settings/${user._id}`);
+      return h.redirect("/login");
     },
   },
 };
