@@ -4,7 +4,9 @@ export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const placeMarks = await db.placeMarkStore.getUserPlaceMarks(loggedInUser._id);
+      const placeMarks = await db.placeMarkStore.getUserPlaceMarks(
+        loggedInUser._id
+      );
       const viewData = {
         title: "Place Mark Dashboard",
         user: loggedInUser,
@@ -28,10 +30,11 @@ export const dashboardController = {
 
   deletePlaceMark: {
     handler: async function (request, h) {
-      const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
+      const placeMark = await db.placeMarkStore.getPlaceMarkById(
+        request.params.id
+      );
       await db.placeMarkStore.deletePlaceMarkById(placeMark._id);
       return h.redirect("/dashboard");
     },
   },
-
 };

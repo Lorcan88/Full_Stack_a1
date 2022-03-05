@@ -1,7 +1,8 @@
 {{#each user}}
   <div class="box box-link-hover-shadow">
     <h2 class="title">
-      {{firstName}}  {{lastName}}
+      {{firstName}}
+      {{lastName}}
     </h2>
     <p> Total Number of PlaceMarks: {{placeMarks.place.length}} </p>
     <a href="/adminUserViewDashboard/{{_id}}" class="button">
@@ -14,5 +15,3 @@
     </a>
   </div>
 {{/each}}
-
-

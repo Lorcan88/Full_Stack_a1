@@ -9,11 +9,14 @@
     "dev": "nodemon --verbose src/server.js",
     "lint": "eslint . --ext .js"
   },
+  "engines": {
+    "node": "16.13.2"
+  },
   "dependencies": {
     "@hapi/cookie": "^11.0.2",
     "@hapi/hapi": "^20.2.1",
     "@hapi/vision": "^6.1.0",
-    "dotenv": "^10.0.0",
+    "dotenv": "^15.0.1",
     "handlebars": "^4.7.7",
     "joi": "^17.6.0",
     "lowdb": "^3.0.0",

@@ -20,10 +20,13 @@ export const accountsController = {
       payload: UserSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("signup-view", {
-          title: "Sign up error",
-          errors: error.details
-        }).takeover().code(400);
+        return h
+          .view("signup-view", {
+            title: "Sign up error",
+            errors: error.details,
+          })
+          .takeover()
+          .code(400);
       },
     },
     handler: async function (request, h) {
@@ -47,12 +50,10 @@ export const accountsController = {
       if (user && user.password === password) {
         request.cookieAuth.set({ id: user._id });
         return h.redirect("/dashboard");
-      }
-      else if (admin && admin.password === password) {
-          request.cookieAuth.set({ id: admin._id });
-          return h.redirect("/adminDashboard");
-        }
-       else{
+      } else if (admin && admin.password === password) {
+        request.cookieAuth.set({ id: admin._id });
+        return h.redirect("/adminDashboard");
+      } else {
         return h.redirect("/");
       }
     },
@@ -69,9 +70,8 @@ export const accountsController = {
     const admin = await db.adminStore.getAdminById(session.id);
     if (user) {
       return { valid: true, credentials: user };
-    }
-    else if (admin){
-      return { valid: true, credentials: admin }
+    } else if (admin) {
+      return { valid: true, credentials: admin };
     } else {
       return { valid: false };
     }
