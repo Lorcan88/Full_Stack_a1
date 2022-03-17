@@ -52,11 +52,12 @@ async function init() {
   });
   server.auth.default("session");
 
-  db.init();
+  db.init("mongo");
   server.route(webRoutes);
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }
+
 
 process.on("unhandledRejection", (err) => {
   console.log(err);
