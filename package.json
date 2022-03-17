@@ -9,7 +9,6 @@
     "dev": "nodemon --verbose src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/mocha --ui tdd test/**/*.js"
-
   },
   "engines": {
     "node": "16.13.2"
@@ -22,6 +21,7 @@
     "handlebars": "^4.7.7",
     "joi": "^17.6.0",
     "lowdb": "^3.0.0",
+    "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^6.2.7",
     "uuid": "^8.3.2"
   },
