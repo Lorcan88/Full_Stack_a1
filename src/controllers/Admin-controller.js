@@ -5,10 +5,14 @@ export const adminDashboardController = {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const users = await db.userStore.getAllUsers();
+      const placeMarks = await db.placeMarkStore.getAllPlaceMarks();
+      const places = await db.placeStore.getAllPlaces();
       const viewData = {
         title: "Admin Place Mark Dashboard",
         admin: loggedInUser,
         user: users,
+        placeMarks: placeMarks,
+        place: places,
       };
       return h.view("adminDashboard-view", viewData);
     },
@@ -23,6 +27,17 @@ export const adminDashboardController = {
         placeMarks: placeMarks,
       };
       return h.view("adminUserViewDashboard-view", viewData);
+    },
+  },
+
+  userPlaceViewIndex: {
+    handler: async function (request, h) {
+      const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
+      const viewData = {
+        title: "PlaceMark",
+        placeMark: placeMark,
+      };
+      return h.view("adminUserPlaceViewDashboard-view", viewData);
     },
   },
 

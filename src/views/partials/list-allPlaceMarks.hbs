@@ -1,16 +1,42 @@
-{{#each placeMarks}}
-  <div class="box box-link-hover-shadow">
-    <h2 class="title">
-      {{title}}
-    </h2>
-    <p> Total Number of PlaceMarks: {{placMark.size}} </p>
-    <a href="/placeMark/{{_id}}" class="button">
-      <span class="icon is-small">
-        <i class="fas fa-folder-open"></i>
-      </span>
-    </a>
-    <a href="/adminDashboard/deleteplaceMark/{{id}}" class="button">
-      <i class="fas fa-trash"></i>
-    </a>
-  </div>
-{{/each}}
+<table class="table is-fullwidth">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Category</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each place}}
+    <tr>
+      <td>
+        {{name}}
+      </td>
+      <td>
+        {{description}}
+      </td>
+      <td>
+        {{location}}
+      </td>
+      <td>
+        {{category}}
+      </td>
+      <td>
+        {{longitude}}
+      </td>
+      <td>
+        {{latitude}}
+      </td>
+      <td>
+        <a href="/placeMark/{{../placeMark._id}}/deleteplace/{{_id}}" class="ui icon button">
+          <i class="fas fa-trash"></i>
+        </a>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

@@ -9,6 +9,11 @@ export const placeMongoStore = {
     return this.getPlaceById(placeObj._id);
   },
 
+  async getAllPlaces() {
+    const places = await Place.find().lean();
+    return places;
+  },
+
   async getPlacesByPlaceMarkId(id) {
     const places = await Place.find({ placeMarkid: id }).lean();
     return places;
