@@ -1,7 +1,7 @@
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testPlaceMarks, maggie } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testPlaceMarks, bart } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("PlaceMark Model tests", () => {
   setup(async () => {
@@ -14,8 +14,8 @@ suite("PlaceMark Model tests", () => {
   });
 
   test("create a placeMark", async () => {
-    const placeMark = await db.placeMarkStore.addPlaceMark(maggie);
-    assertSubset(maggie, placeMark);
+    const placeMark = await db.placeMarkStore.addPlaceMark(bart);
+    assertSubset(bart, placeMark);
     assert.isDefined(placeMark._id);
   });
 
@@ -28,12 +28,12 @@ suite("PlaceMark Model tests", () => {
   });
 
   test("get a placeMark - success", async () => {
-    const placeMark = await db.placeMarkStore.addPlaceMark(maggie);
+    const placeMark = await db.placeMarkStore.addPlaceMark(bart);
     const returnedPlaceMark = await db.placeMarkStore.getPlaceMarkById(placeMark._id);
-    assertSubset(maggie, placeMark);
+    assertSubset(bart, placeMark);
   });
 
-  test("delete One Playlist - success", async () => {
+  test("delete One PlaceMark - success", async () => {
     const id = testPlaceMarks[0]._id;
     await db.placeMarkStore.deletePlaceMarkById(id);
     const returnedPlaceMarks = await db.placeMarkStore.getAllPlaceMarks();

@@ -23,6 +23,7 @@ export const webRoutes = [
   { method: "GET", path: "/adminUserViewDashboard/{id}", config: adminDashboardController.userViewIndex },
   { method: "GET", path: "/adminUserPlaceViewDashboard/{id}", config: adminDashboardController.userPlaceViewIndex },
   { method: "GET", path: "/adminDashboard/deleteuser/{id}", config: adminDashboardController.deleteUser },
+  { method: "GET", path: "/adminDashboard/deleteplace/{id}", config: adminDashboardController.deletePlace },
 
   { method: "GET", path: "/settings/{id}/updatecurrentuser", config: settingsController.index },
   { method: "POST", path: "/settings/{id}/updatecurrentuser", config: settingsController.updateCurrentUser },
@@ -30,4 +31,6 @@ export const webRoutes = [
   { method: "GET", path: "/placeMark/{id}", config: placeMarkController.index },
   { method: "POST", path: "/placeMark/{id}/addplace", config: placeMarkController.addPlace },
   { method: "GET", path: "/placeMark/{id}/deleteplace/{placeid}", config: placeMarkController.deletePlace },
+
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 ];
