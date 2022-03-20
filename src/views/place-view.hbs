@@ -1,0 +1,56 @@
+{{> menu}}
+
+<form class="box"  action="/place/{{placeMark._id}}/updateplace/{{place._id}}" method="POST">
+  <label>Update Place Details:</label>
+  <div class="field is-horizontal">
+  <div class="field-body">
+    <div class="field">
+      <input class="input" type="text" placeholder="Enter Name" name="name" />
+    </div>
+    <div class="field">
+      <input
+        class="input"
+        type="text"
+        placeholder="Enter Description"
+        name="description"
+      />
+    </div>
+    <div class="field">
+      <input
+        class="input"
+        type="text"
+        placeholder="Enter location"
+        name="location"
+      />
+    </div>
+    <div class="field">
+      <select class="input" name="category">
+        <option disabled selected> Select Category</option>
+        <option> Cat 1 </option>
+        <option> Cat 2 </option>
+        <option> Cat 3 </option>
+        <option> Cat 4 </option>
+        <option> Cat 5 </option>
+      </select>
+    </div>
+    <div class="field">
+      <input
+        class="input"
+        type="text"
+        placeholder="Enter Longitude"
+        name="longitude"
+      />
+    </div>
+    <div class="field">
+      <input
+        class="input"
+        type="text"
+        placeholder="Enter Latitude"
+        name="latitude"
+      />
+    </div>
+  </div>
+  </div>
+  <button class="button is-primary">Update Place</button>
+</form>
+

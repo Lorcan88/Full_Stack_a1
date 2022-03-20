@@ -78,6 +78,7 @@ async function init() {
   server.route(apiRoutes);
   await server.start();
   console.log("Server running on %s", server.info.uri);
+  console.log("Swagger API Documentation available on http://localhost:3000/documentation");
 }
 
 process.on("unhandledRejection", (err) => {

@@ -33,10 +33,10 @@ export const testPlaceMarks = [
     title: "cork ",
   },
   {
-    title: "cork river",
+    title: "France",
   },
   {
-    title: "cork Mountains",
+    title: "Italy",
   },
 ];
 
@@ -45,9 +45,12 @@ export const waterford = {
 };
 
 export const river = {
-  title: "River Lee",
-  artist: "Mozart",
-  duration: 15,
+  name: "Healys Pass",
+  description: "Long steep Hill",
+  location: "Glengariff",
+  category: "Cat 2",
+  longitude: 4,
+  latitude: 4,
 };
 
 export const cork = {
@@ -56,26 +59,26 @@ export const cork = {
 
 export const testPlaces = [
   {
-    name: "fota",
-    description: "animal park",
-    location: "Cobh",
-    category: "outdoor walk",
+    name: "Healys Pass",
+    description: "Long steep Hill",
+    location: "Glengariff",
+    category: "Cat 2",
     longitude: 4,
     latitude: 4,
   },
   {
-    name: "fitzgearlds park",
-    description: "flower garden",
+    name: "Patricks Hill",
+    description: "steep Climb",
     location: "Cork City",
-    category: "leisure walk",
+    category: "Cat 2",
     longitude: 7,
     latitude: 7,
   },
   {
-    name: "duck walk",
-    description: "garden walk",
-    location: "Blarney",
-    category: "leisure walk",
+    name: "Nad",
+    description: "Long climb",
+    location: "Nad, Cork",
+    category: "Cat 3",
     longitude: 8,
     latitude: 8,
   },
