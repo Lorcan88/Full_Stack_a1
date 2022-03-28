@@ -3,7 +3,7 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const placeSchema = new Schema({
-  name: String,
+  title: String,
   description: String,
   location: String,
   category: String,

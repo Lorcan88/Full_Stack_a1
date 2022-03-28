@@ -36,19 +36,17 @@ export const placeJsonStore = {
     db.data.places.splice(index, 1);
     await db.write();
   },
-
-  async deleteAllPlaces() {
-    db.data.places = [];
-    await db.write();
-  },
-
   async updatePlace(place, updatedPlace) {
-    place.name = updatedPlace.name;
+    place.title = updatedPlace.title;
     place.description = updatedPlace.description;
     place.location = updatedPlace.location;
     place.category = updatedPlace.category;
     place.longitude = updatedPlace.longitude;
     place.latitude = updatedPlace.latitude;
+    await db.places.write();
+  },
+  async deleteAllPlaces() {
+    db.data.places = [];
     await db.write();
   },
 };

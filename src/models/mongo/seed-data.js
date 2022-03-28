@@ -41,7 +41,7 @@ export const seedData = {
   places: {
     _model: "Place",
     place_1: {
-      name: "Healys Pass",
+      title: "Healys Pass",
       description: "Long steep Hill",
       location: "Glengariff",
       category: "Cat 2",
@@ -51,7 +51,7 @@ export const seedData = {
     },
 
     place_2: {
-      name: "Patricks Hill",
+      title: "Patricks Hill",
       description: "steep Climb",
       location: "Cork City",
       category: "Cat 2",
@@ -61,7 +61,7 @@ export const seedData = {
     },
 
     place_3: {
-      name: "Nad",
+      title: "Nad",
       description: "Long climb",
       location: "Nad, Cork",
       category: "Cat 3",

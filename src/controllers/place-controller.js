@@ -4,8 +4,8 @@ import { db } from "../models/db.js";
 export const placeController = {
   index: {
     handler: async function (request, h) {
-      const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
       const place = await db.placeStore.getPlaceById(request.params.placeid);
+      const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
       const viewData = {
         title: "Edit place",
         placeMark: placeMark,
@@ -24,17 +24,22 @@ export const placeController = {
       },
     },
     handler: async function (request, h) {
-      const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
+      //const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
+      //const place = await db.placeStore.getPlaceById(request.params.id);
       const newPlace = {
-        name: request.payload.name,
+        title: request.payload.title,
         description: request.payload.description,
         location: request.payload.location,
         category: request.payload.category,
         longitude: Number(request.payload.longitude),
         latitude: Number(request.payload.latitude),
       };
-      await db.placeStore.addPlace(placeMark._id, newPlace);
-      return h.redirect(`/placeMark/${placeMark._id}`);
+      try {
+        await db.placeStore.updatePlace(request.params.placeid, newPlace);
+      } catch (error) {
+        console.log(error);
+      }
+      return h.redirect(`/placeMark/${request.params.id}`);
     },
   },
 };

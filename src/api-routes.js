@@ -18,6 +18,6 @@ export const apiRoutes = [
   { method: "POST", path: "/api/placeMarks/{id}/places", config: placeApi.create },
   { method: "DELETE", path: "/api/places", config: placeApi.deleteAll },
   { method: "DELETE", path: "/api/places/{id}", config: placeApi.deleteOne },
-  { method: "GET", path: "/place/{id}/editplace/{placeid}", config: placeController.index },
-  { method: "POST", path: "/place/{id}/updateplace/{placeid}", config: placeController.update },
+  //{ method: "GET", path: "/api/place/{id}/editplace/{placeid}", config: placeController.index },
+  //{ method: "POST", path: "/api/place/{id}/updateplace/{placeid}", config: placeController.update },
 ];

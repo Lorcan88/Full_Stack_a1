@@ -15,7 +15,8 @@ export const UserSpec = Joi.object()
 
 export const PlaceSpec = Joi.object()
   .keys({
-    name: Joi.string().required().example("Alpe d'Huez"),
+    title: Joi.string().required().example("Alpe d'Huez"),
+    description: Joi.string().required().example("steep hill"),
     location: Joi.string().required().example("France"),
     category: Joi.string().required().example("Cat 1"),
     longitude: Joi.number().allow("").optional().example(12),

@@ -4,6 +4,7 @@ import { dashboardController } from "./controllers/dashboard-controller.js";
 import { adminDashboardController } from "./controllers/Admin-controller.js";
 import { placeMarkController } from "./controllers/placeMark-controller.js";
 import { settingsController } from "./controllers/settings-controller.js";
+import { placeController } from "./controllers/place-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -31,6 +32,8 @@ export const webRoutes = [
   { method: "GET", path: "/placeMark/{id}", config: placeMarkController.index },
   { method: "POST", path: "/placeMark/{id}/addplace", config: placeMarkController.addPlace },
   { method: "GET", path: "/placeMark/{id}/deleteplace/{placeid}", config: placeMarkController.deletePlace },
+  { method: "GET", path: "/place/{id}/editplace/{placeid}", config: placeController.index },
+  { method: "POST", path: "/place/{id}/updateplace/{placeid}", config: placeController.update },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 ];

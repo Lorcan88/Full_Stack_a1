@@ -35,17 +35,18 @@ export const placeMongoStore = {
     }
   },
 
-  async deleteAllPlaces() {
-    await Place.deleteMany({});
-  },
-
-  async updatePlace(place, updatedPlace) {
-    place.name = updatedPlace.name;
+  async updatePlace(placeId, updatedPlace) {
+    const place = await Place.findOne({ _id: placeId });
+    place.title = updatedPlace.title;
     place.description = updatedPlace.description;
     place.location = updatedPlace.location;
     place.category = updatedPlace.category;
     place.longitude = updatedPlace.longitude;
     place.latitude = updatedPlace.latitude;
     await place.save();
+  },
+
+  async deleteAllPlaces() {
+    await Place.deleteMany({});
   },
 };

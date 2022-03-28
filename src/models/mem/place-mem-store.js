@@ -34,13 +34,4 @@ export const placeMemStore = {
   async deleteAllPlaces() {
     places = [];
   },
-
-  async updatePlace(place, updatedPlace) {
-    place.name = updatedPlace.name;
-    place.description = updatedPlace.description;
-    place.location = updatedPlace.location;
-    place.category = updatedPlace.category;
-    place.longitude = updatedPlace.longitude;
-    place.latitude = updatedPlace.latitude;
-  },
 };
