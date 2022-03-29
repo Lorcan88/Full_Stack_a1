@@ -24,14 +24,14 @@ export const settingsController = {
     },
     handler: async function (request, h) {
       //const loggedInUser = request.auth.credentials;
-      const user = await db.userStore.getUserById(request.params.id);
+      //const user = await db.userStore.getUserById(request.params.id);
       const viewData = {
         firstName: request.payload.firstName,
         lastName: request.payload.lastName,
         email: request.payload.email,
         password: request.payload.password,
       };
-      await db.userStore.updateUser(user, viewData);
+      await db.userStore.updateUser(request.params.id, viewData);
       return h.redirect("/login");
     },
   },

@@ -55,4 +55,11 @@ export const adminDashboardController = {
       return h.redirect("/adminDashboard");
     },
   },
+  removePlace: {
+    handler: async function (request, h) {
+      const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.id);
+      await db.placeStore.deletePlace(request.params.placeid);
+      return h.redirect(`/adminUserPlaceViewDashboard/${placeMark._id}`);
+    },
+  },
 };

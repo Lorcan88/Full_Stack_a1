@@ -25,6 +25,7 @@ export const webRoutes = [
   { method: "GET", path: "/adminUserPlaceViewDashboard/{id}", config: adminDashboardController.userPlaceViewIndex },
   { method: "GET", path: "/adminDashboard/deleteuser/{id}", config: adminDashboardController.deleteUser },
   { method: "GET", path: "/adminDashboard/deleteplace/{id}", config: adminDashboardController.deletePlace },
+  { method: "GET", path: "/adminDashboard/{id}/removeplace/{placeid}", config: adminDashboardController.removePlace },
 
   { method: "GET", path: "/settings/{id}/updatecurrentuser", config: settingsController.index },
   { method: "POST", path: "/settings/{id}/updatecurrentuser", config: settingsController.updateCurrentUser },

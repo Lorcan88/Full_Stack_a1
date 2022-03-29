@@ -1,4 +1,5 @@
 import { User } from "./user.js";
+import { Place } from "./place.js";
 
 export const userMongoStore = {
   async getAllUsers() {
@@ -13,7 +14,14 @@ export const userMongoStore = {
     }
     return null;
   },
-
+  async updateUser(user, updatedUser) {
+    const users = await User.findOne({ _id: user });
+    users.firstName = updatedUser.firstName;
+    users.lastName = updatedUser.lastName;
+    users.email = updatedUser.email;
+    users.password = updatedUser.password;
+    await users.save();
+  },
   async addUser(user) {
     const newUser = new User(user);
     const userObj = await newUser.save();
@@ -36,5 +44,5 @@ export const userMongoStore = {
 
   async deleteAll() {
     await User.deleteMany({});
-  }
+  },
 };
